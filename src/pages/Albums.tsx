@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Album } from '../types/Album';
 import Gallery from '../components/album/Gallery';
 
-function AlbumesPage() {
+function AlbumsPage() {
   const [albums, setAlbums] = useState<Album[]>([]);
 
   useEffect(()=> {
@@ -49,4 +49,4 @@ function AlbumesPage() {
   )
 }
 
-export default AlbumesPage;
+export default AlbumsPage;

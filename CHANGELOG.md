@@ -31,7 +31,7 @@ const router = createBrowserRouter([....]);
     <RouterProvider />
 ```
 
-### Create about, albumes and a generic error page. 
+### Create about, albums and a generic error page. 
 ```
 const router = createBrowserRouter([
   {
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
     path: '/about',
   },
   {
-    element: <AlbumesPage />,
+    element: <AlbumsPage />,
     path: '/albums',
   }
 ]);
@@ -60,7 +60,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        element: <AlbumesPage />,
+        element: <AlbumsPage />,
         path: '/albums',
       },
       {

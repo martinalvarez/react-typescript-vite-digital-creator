@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import ErrorPage from './pages/Error.tsx';
-import AlbumesPage from './pages/Albumes.tsx';
+import AlbumsPage from './pages/Albums.tsx';
 import AboutPage from './pages/About.tsx';
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        element: <AlbumesPage />,
+        element: <AlbumsPage />,
         path: '/albums',
       },
       {

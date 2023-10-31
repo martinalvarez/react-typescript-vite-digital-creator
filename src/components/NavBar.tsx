@@ -14,7 +14,7 @@ function NavBar() {
     return(
         <>
             <ul style={inlineStyle.container}>
-                <li style={inlineStyle.link}><Link to='/albums'>Albumes</Link></li>
+                <li style={inlineStyle.link}><Link to='/albums'>Albums</Link></li>
                 
                 <li style={inlineStyle.link}><Link to='/about'>About</Link></li>
             </ul>        
