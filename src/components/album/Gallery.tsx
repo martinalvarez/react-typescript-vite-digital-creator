@@ -7,15 +7,13 @@ function Gallery({ albums }: { albums: Album[]}) {
         <>
             <h1>Albums</h1>
 
-            <ul className={styles.container}>
+            <div className={styles.container}>
                 {albums.map((album)=>{
                     return (
-                        <li key={album.id}>
-                            <Card album={album} />
-                        </li>
+                        <Card key={album.id} album={album} />
                     );
                 })}
-            </ul>
+            </div>
         </>
     );
 }

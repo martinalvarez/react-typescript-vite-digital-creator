@@ -6,11 +6,12 @@ function Card({ album }: { album: Album }) {
         <>
             <div className={styles.container}>
                 <div>
-                    <img src={album.image_url} width={300} height={300}/>
+                    <img className={styles.image} src={album.image_url} />
                 </div>
-                <div>
+
+                <div className={styles.description}>
                     {album.name} - [{album.release}]
-                </div>
+                </div>                
             </div>
         </>
     );
