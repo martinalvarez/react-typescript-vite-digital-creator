@@ -44,10 +44,7 @@ function AlbumesPage() {
  
   return (
     <>
-      <h1>Testing</h1>
-      
       <Gallery albums={albums} />
-      
     </>
   )
 }

@@ -32,3 +32,42 @@ const router = createBrowserRouter([....]);
 ```
 
 ### Create about, albumes and a generic error page. 
+```
+const router = createBrowserRouter([
+  {
+    element: <App />,
+    path: '/',
+    errorElement: <ErrorPage />,
+  },
+  {
+    element: <AboutPage />,
+    path: '/about',
+  },
+  {
+    element: <AlbumesPage />,
+    path: '/albums',
+  }
+]);
+```
+
+### Update root component to create a layout
+The router cointains children now. 
+```
+const router = createBrowserRouter([
+  {
+    element: <App />,
+    path: '/',
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        element: <AlbumesPage />,
+        path: '/albums',
+      },
+      {
+        element: <AboutPage />,
+        path: '/about',
+      },        
+    ],
+  },
+]);
+```
