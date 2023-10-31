@@ -71,3 +71,6 @@ const router = createBrowserRouter([
   },
 ]);
 ```
+
+### Create a nav bar
+Used inline style (just to practice!)
