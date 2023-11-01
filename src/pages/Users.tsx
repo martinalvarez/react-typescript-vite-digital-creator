@@ -1,16 +1,12 @@
 import React from "react";
 import { User } from "../types/User";
+import { USERS_API } from "../constants/API";
 import UsersGrid from "../components/users/Grid";
+import Loading from "../components/spinner/Loading";
 
 interface UsersPageState {
     loading: boolean;
     users: User[];    
-}
-
-function LoadingUsers() {
-    return (
-        <h2>Loading....</h2>
-    );
 }
 
 class UsersPage extends React.Component<unknown, UsersPageState> {
@@ -24,11 +20,10 @@ class UsersPage extends React.Component<unknown, UsersPageState> {
 
     async componentDidMount() {
         this.setState({ loading: true });
-        const url = 'https://jsonplaceholder.typicode.com/users';
-        const response = await fetch(url);
-        const data: User[] = await response.json();
+        const response = await fetch(USERS_API);
+        const users: User[] = await response.json();
         this.setState({
-            users: data,
+            users,
             loading: false,
         })
     }
@@ -39,7 +34,7 @@ class UsersPage extends React.Component<unknown, UsersPageState> {
             <>
                 <h1>Users</h1>
 
-                {loading ? <LoadingUsers /> : <UsersGrid users={users} />}
+                {loading ? <Loading /> : <UsersGrid users={users} />}
             </>
         );
     }

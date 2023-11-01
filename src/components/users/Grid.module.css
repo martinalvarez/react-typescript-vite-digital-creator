@@ -1,0 +1,14 @@
+.grid {
+    border: 1px solid black;
+    margin: auto;
+    width: 80%;
+}
+
+.grid th {
+    background-color: lightgray;
+}
+
+.grid th, .grid td {
+    padding: 1rem;
+    border: 1px solid grey;
+}

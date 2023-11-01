@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import AboutPage from './pages/About.tsx';
+import AlbumsPage from './pages/Albums.tsx';
 import App from './App.tsx';
 import ErrorPage from './pages/Error.tsx';
-import AlbumsPage from './pages/Albums.tsx';
-import AboutPage from './pages/About.tsx';
 import LoginPage from './pages/Login.tsx';
+import PostsPage from './pages/Posts.tsx';
 import UsersPage from './pages/Users';
-import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import './index.css';
 
 const router = createBrowserRouter([
   {
@@ -26,8 +27,11 @@ const router = createBrowserRouter([
       {
         element: <UsersPage />,
         path: '/users',
-
-      }
+      },
+      {
+        element: <PostsPage />,
+        path: '/posts',
+      }      
     ],
   },
   {
