@@ -1,12 +1,6 @@
 import React from "react";
-
-interface User {
-    email: string;
-    id: number;
-    name: string;
-    phone: string;
-    username: string;
-}
+import { User } from "../types/User";
+import UsersGrid from "../components/users/Grid";
 
 interface UsersPageState {
     loading: boolean;
@@ -16,40 +10,6 @@ interface UsersPageState {
 function LoadingUsers() {
     return (
         <h2>Loading....</h2>
-    );
-}
-
-function UsersTable({ users } :{ users: User[] }) {
-    return(
-        <table>
-            <thead>
-                <tr>
-                    <th>Username</th>
-
-                    <th>Name</th>
-
-                    <th>Email</th>
-                    
-                    <th>Phone</th>                
-                </tr>
-            </thead>
-
-            <tbody>
-                {users.map(({ email, id, name, phone, username })=> {
-                    return (
-                        <tr key={id}>
-                            <td>{username}</td>  
-
-                            <td>{name}</td>
-
-                            <td>{email}</td>
-
-                            <td>{phone}</td>
-                        </tr>
-                    );
-                })}
-            </tbody>
-        </table>            
     );
 }
 
@@ -79,7 +39,7 @@ class UsersPage extends React.Component<unknown, UsersPageState> {
             <>
                 <h1>Users</h1>
 
-                {loading ? <LoadingUsers /> : <UsersTable users={users} />}
+                {loading ? <LoadingUsers /> : <UsersGrid users={users} />}
             </>
         );
     }
