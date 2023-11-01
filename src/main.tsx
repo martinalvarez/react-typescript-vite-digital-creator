@@ -1,11 +1,12 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App.tsx';
 import ErrorPage from './pages/Error.tsx';
 import AlbumsPage from './pages/Albums.tsx';
 import AboutPage from './pages/About.tsx';
 import LoginPage from './pages/Login.tsx';
-import './index.css'
+import UsersPage from './pages/Users';
+import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter([
@@ -21,7 +22,12 @@ const router = createBrowserRouter([
       {
         element: <AboutPage />,
         path: '/about',
-      },        
+      },
+      {
+        element: <UsersPage />,
+        path: '/users',
+
+      }
     ],
   },
   {

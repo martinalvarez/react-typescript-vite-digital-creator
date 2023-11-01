@@ -74,3 +74,9 @@ const router = createBrowserRouter([
 
 ### Create a nav bar
 Used inline style (just to practice!)
+
+### Create Users page using Class components and the external API: https://jsonplaceholder.typicode.com
+Just to practice, Users page is built using Class component. It inherits from React.Component
+  constructor receives props and set the state using this.state = {....}
+  componentDidMount fetches the API with users and set the state using this.setState({ .... })
+

@@ -31,7 +31,12 @@ const menu: Menu[] = [
         id: 3,
         label: 'Login',
         location: '/login',
-    },        
+    },
+    {
+        id: 4,
+        label: 'Users',
+        location: '/users',
+    },    
 ];
 
 function NavBar() {
