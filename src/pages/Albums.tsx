@@ -7,7 +7,7 @@ function AlbumsPage() {
 
   useEffect(()=> {
     async function fetchAlbums() {
-      const url = 'http://127.0.0.1:8000/music/api/v1/albums/';
+      const url = 'http://127.0.0.1:8000/music/api/v2/albums/';
       try {
         const response = await fetch(url);
         const data: Album[] = await response.json();
