@@ -1,21 +1,20 @@
 import { Outlet } from 'react-router-dom';
-import NavBar from './components/NavBar';
+import Footer from './components/Footer';
+import Header from './components/Header';
 import styles from './App.module.css';
-import AutoComplete from './components/controls/AutoComplete';
+// import AutoComplete from './components/controls/AutoComplete';
+//         <AutoComplete />
 
 function App() {
- 
   return (
     <div className={styles.container}>
-      <h1>Welcome to the Music!</h1>
+      <Header />
 
-      <NavBar />
-
-      <AutoComplete />
-
-      <div>
+      <main>
         <Outlet />
-      </div>
+      </main>
+
+      <Footer />
     </div>
   )
 }

@@ -46,7 +46,7 @@ const menu: Menu[] = [
 
 function NavBar() {
     return(
-        <>
+        <nav>
             <ul style={inlineStyle.container}>
                 {menu.map((item)=> {
                     return (
@@ -56,7 +56,7 @@ function NavBar() {
                     );
                 })}
             </ul>        
-        </>
+        </nav>
     );
 }
 

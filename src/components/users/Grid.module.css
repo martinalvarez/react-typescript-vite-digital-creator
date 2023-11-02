@@ -1,14 +1,15 @@
 .grid {
-    border: 1px solid black;
+    border-spacing: 0;    
     margin: auto;
     width: 80%;
 }
 
-.grid th {
-    background-color: lightgray;
+.grid th, .grid td {
+    padding: 0.5rem;
+    border: 1px solid #dddddd;
 }
 
-.grid th, .grid td {
-    padding: 1rem;
-    border: 1px solid grey;
+.grid thead,
+.grid tr:nth-child(even) {
+    background-color: #dddddd;
 }

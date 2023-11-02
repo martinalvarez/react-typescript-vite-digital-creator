@@ -1,15 +1,16 @@
 import { Post } from "../../types/Post";
+import styles from './Grid.module.css';
 
 function PostGrid({ posts }: { posts: Post[] }) {
     return (
         <>
             {posts.map((post)=>{
                 return (
-                    <div key={post.id}>
+                    <article className={styles.article} key={post.id}>
                         <h3>{post.title}</h3>
 
                         <p>{post.body}</p>
-                    </div>
+                    </article>
                 );
             })}        
         </>
