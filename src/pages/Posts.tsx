@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { POSTS_API } from "../constants/API";
-import { Post } from "../types/Post";
-import PostGrid from "../components/posts/Grid";
 import { useLocation } from "react-router-dom";
+import { Post } from "../types/Post";
+import { POSTS_API } from "../constants/API";
 import Loading from "../components/spinner/Loading";
+import PostGrid from "../components/posts/Grid";
 
 function PostsPage(props) {
     // Obtén la ubicación actual
@@ -26,7 +26,6 @@ function PostsPage(props) {
 
             const response = await fetch(url);
             const data: Post[] = await response.json();
-            console.log(data);
             setPosts(data);
             setLoading(false);
         }

@@ -1,8 +1,33 @@
 import { User } from "../../types/User";
 import { Link } from "react-router-dom";
 import styles from './Grid.module.css';
+import store from "../../redux/store";
+import { addUser, removeUser } from "../../redux/actions/actions";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 function UsersGrid({ users } :{ users: User[] }) {
+    const [ids, setIds ] = useState(getIds());
+    const dispatch = useDispatch();
+
+    function getIds() {
+        return store.getState().map(({ id })=> id);
+    }
+
+    function handleAdd(user: User) {
+        dispatch(addUser(user));
+        setIds([
+            ...getIds(),
+        ]);
+    }
+
+    function handleRemove(user: User) {
+        dispatch(removeUser(user));
+        setIds([
+            ...getIds(),
+        ]);
+    }
+    
     return(
         <table className={styles.grid}>
             <thead>
@@ -13,21 +38,30 @@ function UsersGrid({ users } :{ users: User[] }) {
 
                     <th>Email</th>
                     
-                    <th>Phone</th>                
+                    <th>Phone</th>
+
+                    <th></th>                                    
                 </tr>
             </thead>
 
             <tbody>
-                {users.map(({ email, id, name, phone, username })=> {
+                {users.map((user)=> {
                     return (
-                        <tr key={id}>
-                            <td><Link to={`/posts?userId=${id}`}>{username}</Link></td>  
+                        <tr key={user.id}>
+                            <td><Link to={`/posts?userId=${user.id}`}>{user.username}</Link></td>  
 
-                            <td>{name}</td>
+                            <td>{user.name}</td>
 
-                            <td>{email}</td>
+                            <td>{user.email}</td>
 
-                            <td>{phone}</td>
+                            <td>{user.phone}</td>
+
+                            <td>
+                                {ids.includes(user.id)
+                                    ? <button onClick={()=>{handleRemove(user)}}>Remove</button>
+                                    : <button onClick={()=>{handleAdd(user)}}>Add</button>
+                                }
+                            </td>
                         </tr>
                     );
                 })}

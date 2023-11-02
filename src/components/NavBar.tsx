@@ -42,6 +42,11 @@ const menu: Menu[] = [
         label: 'Posts',
         location: '/posts',
     },      
+    {
+        id: 6,
+        label: 'Favorites',
+        location: '/favorites',
+    },        
 ];
 
 function NavBar() {

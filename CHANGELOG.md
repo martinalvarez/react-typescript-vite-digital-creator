@@ -80,3 +80,47 @@ Just to practice, Users page is built using Class component. It inherits from Re
   constructor receives props and set the state using this.state = {....}
   componentDidMount fetches the API with users and set the state using this.setState({ .... })
 
+### Install Redux
+I used redux and react-redux to create the store, reducer and actions to test them. In next iteration I'll use Redux Toolkit
+  npm install redux react-redux @types/react-redux
+redux-devtools-extension is useful to use the Redux tool in the Dev Tools and avoid Typescript warnings.  
+  npm install --save-dev redux-devtools-extension
+
+#### Steps
+Create a reducer function that receives the state and the action. The state can have an initial state.
+```
+function reducer(state=initialState, action) { .... }
+```
+
+Create the store passing the reducer function:
+```
+const store = createStore(reducer, 
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+); 
+``` 
+
+Create actions, functions that return an object with the action type and the payload
+```
+function addUser() { return { type: 'ADD', payload: {userId: 1, .... } } }
+```
+
+Wraped the component that will use the the store using with the redux Provider component.
+The actions are triggered using dispatch, that olds useDispatch();
+The content of the store can be queried using store.getState().
+
+### TODO: use types in store, reducer and actions
+### TODO: install npm install @reduxjs/toolkit
+### TODO: research using redux dev tool only in development
+```
+const store = createStore(reducer, 
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
+
+if (process.env.NODE_ENV === 'development' && window.__REDUX_DEVTOOLS_EXTENSION__) {
+    store = configureStore({
+      // Configuraciones del store
+      enhancers: [window.__REDUX_DEVTOOLS_EXTENSION__()],
+    });
+}
+```

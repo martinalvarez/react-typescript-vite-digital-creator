@@ -4,11 +4,14 @@ import AboutPage from './pages/About.tsx';
 import AlbumsPage from './pages/Albums.tsx';
 import App from './App.tsx';
 import ErrorPage from './pages/Error.tsx';
+import FavoritesPage from './pages/Favorites.tsx';
 import LoginPage from './pages/Login.tsx';
 import PostsPage from './pages/Posts.tsx';
 import UsersPage from './pages/Users';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 
 const router = createBrowserRouter([
   {
@@ -31,7 +34,11 @@ const router = createBrowserRouter([
       {
         element: <PostsPage />,
         path: '/posts',
-      }      
+      },
+      {
+        element: <FavoritesPage />,
+        path: 'favorites',
+      },
     ],
   },
   {
@@ -42,6 +49,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>,
-)
+);
