@@ -1,0 +1,23 @@
+.container {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 20rem;
+}
+
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.options {
+    cursor: pointer;
+    border: 1px solid black;
+    padding: 0.5rem;
+}
+
+.options:hover {
+    background-color: grey;
+}
