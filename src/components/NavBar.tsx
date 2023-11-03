@@ -48,6 +48,11 @@ const menu: Menu[] = [
         label: 'Favorites',
         location: '/favorites',
     },        
+    {
+        id: 7,
+        label: 'Settings',
+        location: '/settings',
+    },     
 ];
 
 function NavBar() {

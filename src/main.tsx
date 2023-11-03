@@ -7,6 +7,7 @@ import FavoritesPage from './pages/Favorites.tsx';
 import LayoutProvider from './context/LayoutProvider.tsx';
 import LoginPage from './pages/Login.tsx';
 import PostsPage from './pages/Posts.tsx';
+import SettingsPage from './pages/Settings.tsx';
 import UsersPage from './pages/Users';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
@@ -37,8 +38,12 @@ const router = createBrowserRouter([
       },
       {
         element: <FavoritesPage />,
-        path: 'favorites',
+        path: '/favorites',
       },
+      {
+        element: <SettingsPage />,
+        path: '/settings'
+      }
     ],
   },
   {
