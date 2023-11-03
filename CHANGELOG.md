@@ -87,6 +87,11 @@ redux-devtools-extension is useful to use the Redux tool in the Dev Tools and av
   npm install --save-dev redux-devtools-extension
 
 #### Steps
+- Design the store
+- Define the actions
+- Create a reducer
+- Set up the store
+
 Create a reducer function that receives the state and the action. The state can have an initial state.
 ```
 function reducer(state=initialState, action) { .... }
@@ -124,3 +129,5 @@ if (process.env.NODE_ENV === 'development' && window.__REDUX_DEVTOOLS_EXTENSION_
     });
 }
 ```
+
+

@@ -1,5 +1,6 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-
+import LayoutContext from "../context/LayoutContext";
 interface Menu {
     id: number;
     label: string;
@@ -50,6 +51,8 @@ const menu: Menu[] = [
 ];
 
 function NavBar() {
+    const { toggleLayout} = useContext(LayoutContext);
+
     return(
         <nav>
             <ul style={inlineStyle.container}>
@@ -60,6 +63,10 @@ function NavBar() {
                         </li>
                     );
                 })}
+                
+                <li>
+                    <button onClick={()=>{ toggleLayout() }}>Toggle Layout</button>
+                </li>
             </ul>        
         </nav>
     );

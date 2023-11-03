@@ -1,10 +1,10 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import AboutPage from './pages/About.tsx';
 import AlbumsPage from './pages/Albums.tsx';
 import App from './App.tsx';
 import ErrorPage from './pages/Error.tsx';
 import FavoritesPage from './pages/Favorites.tsx';
+import LayoutProvider from './context/LayoutProvider.tsx';
 import LoginPage from './pages/Login.tsx';
 import PostsPage from './pages/Posts.tsx';
 import UsersPage from './pages/Users';
@@ -47,10 +47,13 @@ const router = createBrowserRouter([
   }
 ]);
 
+// <React.StrictMode>
+// </React.StrictMode>,
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
-  </React.StrictMode>,
+    <LayoutProvider>
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
+    </LayoutProvider>
 );
