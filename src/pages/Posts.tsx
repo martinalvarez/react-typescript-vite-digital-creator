@@ -13,12 +13,11 @@ function PostsPage(props) {
     // Accede al valor de un parámetro específico (por ejemplo, 'id')
     const idParam = searchParams.get('userId');
 
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [posts, setPosts] = useState<Post[]>([]);
 
     useEffect(()=>{
         async function fetchPosts() {
-            setLoading(true);
             let url = POSTS_API;
             if (idParam) {
                 url = `${url}/?userId=${idParam}`;

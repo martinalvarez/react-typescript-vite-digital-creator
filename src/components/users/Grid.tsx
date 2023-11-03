@@ -3,31 +3,30 @@ import { Link } from "react-router-dom";
 import styles from './Grid.module.css';
 import store from "../../redux/store";
 import { addUser, removeUser } from "../../redux/actions/actions";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
 function UsersGrid({ users } :{ users: User[] }) {
+    
     const [ids, setIds ] = useState(getIds());
     const dispatch = useDispatch();
+
+    useEffect(()=>{
+        const unsubscribe = store.subscribe(()=>{
+            setIds([
+                ...getIds(),
+            ]);
+        });
+
+        return (()=>{
+            unsubscribe();
+        });
+    }, []);
 
     function getIds() {
         return store.getState().map(({ id })=> id);
     }
 
-    function handleAdd(user: User) {
-        dispatch(addUser(user));
-        setIds([
-            ...getIds(),
-        ]);
-    }
-
-    function handleRemove(user: User) {
-        dispatch(removeUser(user));
-        setIds([
-            ...getIds(),
-        ]);
-    }
-    
     return(
         <table className={styles.grid}>
             <thead>
@@ -58,8 +57,8 @@ function UsersGrid({ users } :{ users: User[] }) {
 
                             <td>
                                 {ids.includes(user.id)
-                                    ? <button onClick={()=>{handleRemove(user)}}>Remove</button>
-                                    : <button onClick={()=>{handleAdd(user)}}>Add</button>
+                                    ? <button onClick={()=>{ dispatch(removeUser(user)); }}>Remove</button>
+                                    : <button onClick={()=>{ dispatch(addUser(user)); }}>Add</button>
                                 }
                             </td>
                         </tr>

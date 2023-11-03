@@ -14,12 +14,11 @@ class UsersPage extends React.Component<unknown, UsersPageState> {
         super(props);
         this.state = {
             users: [],
-            loading: false,
+            loading: true,
         };
     }
 
     async componentDidMount() {
-        this.setState({ loading: true });
         const response = await fetch(USERS_API);
         const users: User[] = await response.json();
         this.setState({
